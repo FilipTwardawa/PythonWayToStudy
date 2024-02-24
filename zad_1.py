@@ -35,6 +35,35 @@ print(
     "przez 2, a na końcu ją zwróci.\n Użyj funkcji        Użyj listę składaną\n",
     result_of_multiplication_by_2_loop, result_of_multiply_numbers_by_two_folding_list)
 
+
 # #############################  b)  #########################################
+
+# #############################  c)  #########################################
+def show_even_numbers(numbers):
+    for number in numbers:
+        if number % 2 == 0:
+            print(number)
+
+
+print("\nZadanie 2 c)"
+      "\nUtwórz funkcję, która otrzyma w parametrze listę 10 liczb(rekomendowane wykorzystanie funkcji range ),"
+      "a następnie wyświetli jedynie parzyste elementy.")
+show_even_numbers(range(10))
+
+
+# #############################  c)  #########################################
+
+# #############################  d)  #########################################
+def show_every_second_number(numbers):
+    for idx in range(0, len(numbers), 2):
+        print(numbers[idx])
+
+print("\nZadanie 2 d)"
+      "\nUtwórz funkcję, która otrzyma w parametrze listę 10 liczb(rekomendowane wykorzystanie funkcji range ),"
+      "a następnie wyświetli co drugi element.")
+show_every_second_number(range(10))
+
+# #############################  d)  #########################################
+
 
 # ------------------------------------Zadanie 2 ----------------------------------------------------------------------
