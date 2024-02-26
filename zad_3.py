@@ -6,9 +6,7 @@
 
 
 def check_for_an_even_number(number: int) -> bool:
-    if number % 2 == 0:
-        return True
-    return False
+    return number % 2 == 0
 
 
 result = check_for_an_even_number(7)
