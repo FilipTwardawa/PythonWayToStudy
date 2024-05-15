@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wykrywanie Ludzi na zdjeciu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+
+        input[type="file"]:focus,
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #image-preview {
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <form action="http://localhost:8000/detect_local_image" method="get">
+        <label for="file_path">Dodaj zdjecie z dysku (metoda GET):</label>
+        <input type="text" id="file_path" name="file_path" size="50">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="http://localhost:8000/detect_online_image" method="get">
+        <label for="url">Dodaj zdjęcie z internetu (metoda GET):</label>
+        <input type="text" id="url" name="url" size="50">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="http://localhost:8000/detect_uploaded_image" method="post" enctype="multipart/form-data">
+        <label for="file" style="font-size: 18px; color: #333;">Dodaj zdjecie (metoda POST):</label>
+        <input type="file" id="file" name="file" onchange="previewImage()">
+        <input type="submit" value="Submit">
+        <img id="image-preview" src="#" alt="Image Preview">
+    </form>
+
+    <script>
+        function previewImage() {
+            const fileInput = document.getElementById('file');
+            const imagePreview = document.getElementById('image-preview');
+
+            if (fileInput.files && fileInput.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
