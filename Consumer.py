@@ -7,6 +7,7 @@ from ultralytics import YOLO
 import os
 import logging
 from concurrent.futures import ThreadPoolExecutor
+from time import sleep
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,7 +16,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 yolo_model = YOLO('yolov9c.pt')
 
 # RabbitMQ connection parameters
-RABBITMQ_HOST = 'localhost'
+RABBITMQ_HOST = 'rabbitmq'
 QUEUE_NAME = 'image_tasks'
 RESULT_DIR = 'results'
 
@@ -37,20 +38,33 @@ def process_bytes_to_image(data: bytes) -> Image:
 
 class RabbitMQConsumer:
     def __init__(self, host, queue_name):
-        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=host))
-        self.channel = self.connection.channel()
-        self.channel.queue_declare(queue=queue_name)
-        self.channel.basic_qos(prefetch_count=1)
+        self.connection = None
+        self.channel = None
+        self.host = host
         self.queue_name = queue_name
 
+    def connect(self):
+        while True:
+            try:
+                self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=self.host))
+                self.channel = self.connection.channel()
+                self.channel.queue_declare(queue=self.queue_name)
+                self.channel.basic_qos(prefetch_count=1)
+                break
+            except pika.exceptions.AMQPConnectionError:
+                logging.info("Waiting for RabbitMQ to start...")
+                sleep(5)
+
     def start_consuming(self, callback):
+        self.connect()
         self.channel.basic_consume(queue=self.queue_name, on_message_callback=callback)
         logging.info('Waiting for messages. To exit press CTRL+C')
         self.channel.start_consuming()
 
     def stop_consuming(self):
-        self.channel.stop_consuming()
-        self.connection.close()
+        if self.connection and self.connection.is_open:
+            self.channel.stop_consuming()
+            self.connection.close()
 
 
 def process_task(ch, method, properties, body):
