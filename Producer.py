@@ -8,7 +8,7 @@ from contextlib import contextmanager
 app = FastAPI()
 
 # RabbitMQ connection parameters
-RABBITMQ_HOST = 'localhost'
+RABBITMQ_HOST = 'rabbitmq'
 QUEUE_NAME = 'image_tasks'
 
 
