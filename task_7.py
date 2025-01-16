@@ -1,22 +1,22 @@
-# Dla chętnych Stworzyć skrypt pythonowy, który połączy się z API, które
-# zawiera informacje o browarach (dokumentacja
+# For those willing to create a python script that connects to an API that
+# contains information about breweries (documentation
 # https://www.openbrewerydb.org/documentation).
-# Należy w pythonie zrobić klasę
-# Brawery , która będzie zawierała takie atrybuty jakich dostarcza API wraz z
-# odpowiednim typowaniem.
-# W klasie należy zaimplementować magiczną metodę
-# __str__ która będzie opisywała dane przechowywane w obiekcie.
-# Skrypt ma się połączyć do API i pobrać 20 pierwszych obiektów, a następnie
-# utworzyć listę 20 instancji klasy
-# Brawery , którą przeiteruje i wyświetli każdy obiekt z osobna.
+# You should make a class in python
+# Brawery , which will contain such attributes that the API provides along with the
+# appropriate typing.
+# In the class you should implement the magic method
+# __str__ which will describe the data stored in the object.
+# The script is to connect to the API and retrieve the first 20 objects, and then
+# create a list of 20 instances of the class
+# Brawery , which it will #iterate and display each object individually.
 #
-# Operatory arytmetyczne, logiczne i typowanie 4
+# Arithmetic operators, logical operators and typing 4
 #
-# 8. Dla chętnych Rozszerzyć skrypt z punktu 7 o przyjmowanie parametru city ,
-# który może być przekazywany w wierszu poleceń podczas wykonywania (np.
-# python main.py --city=Berlin ). Należy wykorzystać moduł argparse do
-# wczytywania przekazywanych parametrów, a w razie przekazania wartości
-# ograniczyć pobierane browary do miasta, które zostało wskazane.
+# 8. For those willing Extend the script from point 7 to accept the parameter city ,
+# which can be passed on the command line during execution (e.g.
+# python main.py --city=Berlin ). Use the argparse module to
+# load the passed parameters, and if passed a value
+# limit the fetched brews to the city that was indicated.
 
 from typing import Optional
 
