@@ -5,10 +5,10 @@ def add_work_to_queue(work):
     channel = connection.channel()
     channel.queue_declare(queue='work_queue')
     channel.basic_publish(exchange='', routing_key='work_queue', body=work)
-    print("Praca dodana do kolejki")
+    print("Work added to queue")
     connection.close()
 
 if __name__ == "__main__":
     while True:
-        new_work = input("Podaj pracę do wykonania: ")
+        new_work = input("Specify the work to be done: ")
         add_work_to_queue(new_work)
