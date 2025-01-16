@@ -9,7 +9,7 @@ def add_work_to_queue(work):
 
 if __name__ == "__main__":
     while True:
-        new_work = input("Podaj pracę do wykonania: ")
+        new_work = input("Specify the work to be done: ")
         add_work_to_queue(new_work)
-        print("Praca dodana do kolejki.")
+        print("Work added to the queue.")
         time.sleep(2)

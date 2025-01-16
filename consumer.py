@@ -3,9 +3,9 @@ import threading
 
 
 def process_work(work):
-    print(f"Przetwarzanie pracy: {work}")
+    print(f"Work processing: {work}")
     time.sleep(30)
-    print(f"Praca wykonana: {work}")
+    print(f"Work performed: {work}")
 
 
 def update_work_status(work, new_status):
