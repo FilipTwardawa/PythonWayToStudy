@@ -1,1 +1,7 @@
-# ZPwJpython_ZD_FT
+# PythonWayToStudy
+
+---
+**Solve some simple tasks using functions in python.**
+
+---
+![img.png](img.png)

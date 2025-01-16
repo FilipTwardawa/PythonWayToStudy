@@ -1,4 +1,4 @@
-# ------------------------------------Zadanie 2 ----------------------------------------------------------------------
+# ------------------------------------Task 2 ----------------------------------------------------------------------
 # #############################  a)  #########################################
 
 def show_first_names(names):
@@ -6,7 +6,7 @@ def show_first_names(names):
         print(name)
 
 
-print("\nZadanie 2. a) Utwórz funkcję, która otrzyma w parametrze listę 5 imion, a następnie wyświetli każde z nich.")
+print("\nTask 2. a) Create a function that receives a list of 5 names in a parameter and then displays each name.")
 show_first_names(["Magda", "Bartek", "Cecylia", "Romek", "Ewelina"])
 
 
@@ -30,9 +30,9 @@ def multiply_numbers_by_two_folding_list(numbers):
 result_of_multiply_numbers_by_two_folding_list = multiply_numbers_by_two_folding_list([4, 23, 33, 14, 28])
 
 print(
-    "\nZadanie 2 b)\n"
-    "Utwórz funkcję, która otrzyma w parametrze listę zawierającą 5 dowolnych liczb, każdy jej element pomnoży "
-    "przez 2, a na końcu ją zwróci.\n Użyj funkcji        Użyj listę składaną\n",
+    "\nTask 2 b)\n"
+    "Create a function that receives a list containing 5 arbitrary numbers as a parameter, multiplies each element of it "
+    "by 2, and finally return it.\n Use the function          Use the collapsible list\n",
     result_of_multiplication_by_2_loop, result_of_multiply_numbers_by_two_folding_list)
 
 
@@ -45,9 +45,9 @@ def show_even_numbers(numbers):
             print(number)
 
 
-print("\nZadanie 2 c)"
-      "\nUtwórz funkcję, która otrzyma w parametrze listę 10 liczb(rekomendowane wykorzystanie funkcji range ),"
-      "a następnie wyświetli jedynie parzyste elementy.")
+print("\nTask 2 c)"
+      "\nCreate a function that receives a list of 10 numbers in a parameter(recommended use of the range function),"
+      "and then displays only even elements.")
 show_even_numbers(range(10))
 
 
@@ -58,12 +58,12 @@ def show_every_second_number(numbers):
     for idx in range(0, len(numbers), 2):
         print(numbers[idx])
 
-print("\nZadanie 2 d)"
-      "\nUtwórz funkcję, która otrzyma w parametrze listę 10 liczb(rekomendowane wykorzystanie funkcji range ),"
-      "a następnie wyświetli co drugi element.")
+print("\nTask 2 d)"
+      "\nCreate a function that receives a list of 10 numbers in a parameter(recommended use of the range function ),"
+      "and then displays every second element.")
 show_every_second_number(range(10))
 
 # #############################  d)  #########################################
 
 
-# ------------------------------------Zadanie 2 ----------------------------------------------------------------------
+# ------------------------------------Task 2 ----------------------------------------------------------------------
